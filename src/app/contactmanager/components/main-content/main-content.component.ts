@@ -26,13 +26,10 @@ export class MainContentComponent implements OnInit {
           return;
         }
         setTimeout(() => {
-          this.user = this.service.userById(id)
-
+          this.user = this.service.userById(id);
         }, 500)
-      })
-    }
-
-    )
+      });
+    })
   }
 
 }

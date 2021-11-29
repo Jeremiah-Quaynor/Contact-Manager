@@ -7,10 +7,7 @@
     <mat-nav-list>
       <mat-list-item *ngFor="let user of users | async">
          <a matLine [routerLink]="['/contactmanager', user.id]">
-           <mat-icon svgIcon="{{user.avatar}}">
-
-           </mat-icon>
-           {{ user.name }}
+           <mat-icon svgIcon="{{user.avatar}}"></mat-icon>{{ user.name }}
           </a>
           
       </mat-list-item>

@@ -23,10 +23,9 @@ export class SidenavComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private userService: UserService,
-    private router: Router
-    ) { }
+    private router: Router) { }
 
-  @ViewChild(MatSidenav) sidenav: MatSidenav
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -38,12 +37,11 @@ export class SidenavComponent implements OnInit {
       this.users = this.userService.users;
       this.userService.loadAll();
       
-      this.router.events.subscribe( () => {
+      this.router.events.subscribe(() => {
         if(this.isScreenSmall) {
-          //Close our sidenav
           this.sidenav.close();
         }
-      })
+    });
   }
 
 }
