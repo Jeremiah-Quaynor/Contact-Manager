@@ -13,33 +13,31 @@ export class NewContactDialogComponent implements OnInit {
 
 
   avatars = [
-    'svg-1','svg-2','svg-3','svg-4',
+    'svg-1','svg-2','svg-3','svg-4'
   ]
 
   user: User;
 
   constructor(private dialogRef: MatDialogRef<NewContactDialogComponent>,
-    private userService:UserService
-    ) { }
+    private userService:UserService) { }
 
   name = new FormControl('', [Validators.required]);
 
-  getErrorMessage() {
-    return this.name.hasError('required') ? 'You must enter a name' : '';
-  }
+
   ngOnInit(): void {
     this.user = new User();
     
   }
 
-
+  getErrorMessage() {
+    return this.name.hasError('required') ? 'You must enter a name' : '';
+  }
+  
   save() {
     this.user.name = this.name.value;
     this.userService.addUser(this.user).then(user => {
       this.dialogRef.close(user)
     })
-    this.dialogRef.close(this.user)
-
   }
 
   dismiss() {

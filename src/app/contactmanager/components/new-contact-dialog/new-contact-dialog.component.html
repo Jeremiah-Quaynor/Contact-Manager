@@ -13,12 +13,14 @@
       </mat-select>
     </mat-form-field>
     <br>
+
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput [formControl]="name" required>
       <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <br>
+    
     <mat-form-field appearance="fill">
       <mat-label>date of birth</mat-label>
       <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthDate">
